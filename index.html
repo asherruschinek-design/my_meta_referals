@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Meta Quest Referrals</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger">&#9776;</div>
+
+  <!-- Sidebar Navigation -->
+  <nav>
+    <h2>Menu</h2>
+ <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="gains.html"><i class="fa-solid fa-hand-holding-dollar"></i> What We Gain</a>
+    <a href="socials.html"><i class="fa-solid fa-user-group"></i> My Socials</a>
+    <a href="redeem.html"><i class="fa-solid fa-gift"></i>How to Redeem</a>
+   <a href="links.html"><i class="fa-solid fa-link"></i>Referral Links</a>
+  </nav>
+
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <svg viewBox="0 0 1440 800" preserveAspectRatio="none">
+      <path class="wave wave1" d="M0,400 C480,300 960,500 1440,400 L1440,800 L0,800 Z" fill="rgba(0,179,255,0.3)"/>
+      <path class="wave wave2" d="M0,400 C480,500 960,300 1440,400 L1440,800 L0,800 Z" fill="rgba(0,255,234,0.2)"/>
+      <path class="wave wave3" d="M0,400 C480,350 960,450 1440,400 L1440,800 L0,800 Z" fill="rgba(0,179,255,0.1)"/>
+    </svg>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h1>My Meta Quest Referrals</h1>
+      <p>Welcome! Here’s a collection of my referral codes to get <strong>15% discount</strong> on apps and games from the Meta Quest Store.</p>
+      <p>Use the menu to explore more!</p>
+    </section>
+  </main>
+
+  <!-- Hamburger Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
