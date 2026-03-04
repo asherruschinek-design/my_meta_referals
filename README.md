@@ -1,1 +1,1 @@
-a place for me to shar esomeof my reffaral codes and make money
+a place for me to share some of my refferal codes and make money
