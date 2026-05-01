@@ -1,60 +1,181 @@
-```css
-/* Base Styles */
-body {
-  font-family: 'Arial', sans-serif;
+/* Reset + base */
+body, html {
   margin: 0;
   padding: 0;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
+  color: #fff;
   overflow-x: hidden;
+  background: #001f3f;
 }
 
-/* Hamburger Menu & Navigation */
-.hamburger {
-  display: none; /* Hidden by default on desktop */
-  cursor: pointer;
-  font-size: 24px;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 4px;
-}
-
-nav {
+/* --- Animated Background --- */
+.animated-background {
   position: fixed;
   top: 0;
-  left: -100%;
-  width: 70%;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  transition: 0.3s ease-in-out;
-  padding-top: 60px; /* Account for hamburger icon */
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 
-nav.show {
+.animated-background svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
   left: 0;
 }
 
+.wave {
+  animation: waveAnimation 12s ease-in-out infinite;
+}
+.wave1 { animation-delay: 0s; }
+.wave2 { animation-delay: 4s; }
+.wave3 { animation-delay: 8s; }
+
+@keyframes waveAnimation {
+  0% { transform: translateX(0) translateY(0) scaleY(1); }
+  50% { transform: translateX(-60px) translateY(20px) scaleY(1.05); }
+  100% { transform: translateX(0) translateY(0) scaleY(1); }
+}
+
+/* --- Hamburger Menu --- */
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 100;
+  color: #00ffea;
+}
+
+/* --- Sidebar Navigation --- */
+nav {
+  width: 220px;
+  background: rgba(0, 0, 0, 0.55);
+  position: fixed;
+  height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 90;
+  backdrop-filter: blur(8px);
+}
+
+nav.show { transform: translateX(0); }
+
 nav h2 {
-  margin-bottom: 30px;
-  padding-left: 20px;
   font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #00ffea;
 }
 
 nav a {
-  display: block;
-  margin: 15px 0;
-  color: #333;
+  color: #00ffea;
   text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   transition: 0.3s;
-  padding-left: 20px;
+  font-weight: bold;
 }
 
-nav a:hover, nav a.active {
-  opacity: 0.7;
+nav a:hover {
+  background: rgba(0, 255, 234, 0.2);
+  transform: translateX(6px);
 }
 
-/* Main Content */
+/* --- Main Content --- */
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  /* Center content */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section {
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1.5rem;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+h1, h2 {
+  text-shadow: 1px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* --- Referral Links --- */
+.links a {
+  display: block;
+  margin: 0.7rem 0;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #00ffea;
+  border-radius: 8px;
+  color: #00ffea;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  background: #00ffea;
+  color: #001f3f;
+  transform: scale(1.05);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  nav { width: 70%; }
+}
+.socials {
+  list-style: none;
+  padding: 0;
+}
+
+.socials li {
+  margin: 1rem 0;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  color: #00ffea;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border: 2px solid #00ffea;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: rgba(0,0,0,0.2);
+}
+
+.socials a:hover {
+  background: #00ffea;
+  color: #001f3f;
+  transform: scale(1.05);
+}
+/* Highlight the active menu item */
+nav a.active {
+  background: #00ffea;
+  color: #001f3f;
+  transform: scale(1.05);
+}
